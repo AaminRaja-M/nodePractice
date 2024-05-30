@@ -1,0 +1,3 @@
+this is a new file for writing , created by synchronous file writing approach of fs module
+Layla is beautiful
+Layla is beautiful
