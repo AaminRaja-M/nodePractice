@@ -248,6 +248,27 @@
 
 // fs.mkdirSync('docs')
 
+// & Events module
+
+// const EventEmitter = require('events')
+
+// const Math = require('./math')
+// let math = new Math()
+
+// // Register a listener
+// math.on('makeAnEvent', (e) => {
+//     console.log('Listener-1 called', e);
+// })
+
+// // emitter.addListener('makeAnEvent', (arg) => {
+// //     console.log('Listener-2 called', arg);
+// // })
+
+// // ? both emitter.on and emitter.addListener doing same job
+
+// math.log('message')
+
+
 
 // & http
 
@@ -267,12 +288,317 @@
 // ?
 
 // let http = require('http')
+// let data = require('./MOCK_DATA.json')
+// // console.log(data);
 // let server = http.createServer((req, res) => {
 //     res.write('<html><body><h1>Hi I am h1 tag</h1></body></html>')
+//     res.write(JSON.stringify(data))
 //     res.write('<html><body><h2>Hi I am h1 tag</h2></body></html>')
-//     res.end('\nI am end')
+//     res.end()
 // })
 // server.listen(5000, (error, res) => {
 //     if (error) throw new error
 //     console.log('Server is at port:http://localhost:5000');
 // })
+
+// ?
+
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+
+// })
+
+// const { error } = require('console');
+// let http = require('http');
+// let server = http.createServer((req, res) => {
+//     if(req.url = '/'){
+//         res.write('Hello World')
+//         res.end()
+//     }else if(req.url = '/numbers'){
+//         res.write(JSON.stringify([1, 2, 3]))
+//         res.end()
+//     }
+// });
+
+// server.listen(3000, (err, res) => {
+//     if(err) throw new error
+//     console.log('server is running at port : http://localhost:3000');
+// })
+
+// ?
+
+// const { write } = require('fs')
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//     res.writeHead(200, {"content-type":"text/html"})
+//     res.write('Hi I am server')
+//     res.write('<h1>Hiiiii</h1>')
+//     res.end()
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log('server is running at port : http://localhost:5000');
+//     }
+// })
+
+// ? 
+
+// const { error } = require('console')
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//     res.writeHead(200, {"content-type":"text/html"})
+//     res.write('Hi I am server')
+//     res.write('<h1>Hiiiii</h1>')
+//     res.write('<img src="https://icdn.benchwarmers.ie/wp-content/uploads/2023/11/al-nassr-v-al-khaleej-saudi-pro-league-1-900x600.jpg"/>')
+//     res.end()
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err) throw error
+//     console.log('server is running at port : http://localhost:5000');
+// })
+
+// ? 
+
+// const { error } = require('console')
+// let http = require('http')
+// server = http.createServer((req, res) => {
+//     res.writeHead(200, {'content-type':'application'})
+//     let obj = {
+//         name:'Shunakan'
+//     }
+//     res.write(JSON.stringify(obj))
+//     res.end()
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err) throw error
+//     console.log('server is running at port : http://localhost:5000');
+// })
+
+// ? Routing without using any external files
+
+// const { error } = require('console')
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//     if(req.url == '/'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is home page</h1>')
+//         res.end()
+//     }else if(req.url == '/contact'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is contact page</h1>')
+//         res.end()
+//     }
+//     else if(req.url == '/about'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is about page</h1>')
+//         res.end()
+//     }else if(req.url == '/login'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is login page</h1>')
+//         res.end()
+//     }else if(req.url == '/signin'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is signin page</h1>')
+//         res.end()
+//     }else if(req.url == '/checking'){
+//         res.writeHead(200, {'content-type':'text/html'})
+//         res.write('<h1>This is checking page</h1>')
+//         res.end()
+//     }
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err) throw error
+//     console.log('server is running at port : http://localhost:5000');
+// })
+
+// ? Routing reading file
+
+// const { error } = require('console')
+// const { readFileSync } = require('fs')
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//     if(req.url == '/'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200
+//         let readFileData = readFileSync('./htmlFiles/home.html', 'utf-8')
+//         res.write(readFileData)
+//         res.end()
+//     }else if(req.url == '/about'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200;
+//         let readFileData = readFileSync('./htmlFiles/about.html', 'utf-8')
+//         res.write(readFileData);
+//         res.end()
+//     }else if(req.url == '/contact'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200;
+//         let readFileData = readFileSync('./htmlFiles/contact.html', 'utf-8')
+//         res.write(readFileData);
+//         res.end()
+//     }else if(req.url == '/login'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200;
+//         let readFileData = readFileSync('./htmlFiles/login.html', 'utf-8')
+//         res.write(readFileData);
+//         res.end()
+//     }else if(req.url == '/signin'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200;
+//         let readFileData = readFileSync('./htmlFiles/signin.html', 'utf-8')
+//         res.write(readFileData);
+//         res.end()
+//     }else if(req.url == '/checking'){
+//         res.setHeader('content-type', 'text/html')
+//         res.statusCode = 200;
+//         let readFileData = readFileSync('./htmlFiles/checking.html', 'utf-8')
+//         res.write(readFileData);
+//         res.end()
+//     }
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err) throw error
+//     console.log('server is running at port : http://localhost:5000');
+// })
+
+// & api
+
+// const { error } = require('console')
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//     res.setHeader('content-type', 'application/json')
+//     res.setHeader('Access-Control-Allow-Origin', '*')
+//     res.statusCode = 200
+
+//     let Employee = [
+//         {
+//             emp_name : 'Irfan',
+//             emp_id : 101,
+//             emp_location : 'Banglore'
+//         },
+//         {
+//             emp_name : 'Sahana',
+//             emp_id : 102,
+//             emp_location : 'Mumbai'
+//         },
+//         {
+//             emp_name : 'Sneha',
+//             emp_id : 103,
+//             emp_location : 'Mysuru'
+//         },
+//         {
+//             emp_name : 'Prathap',
+//             emp_id : 104,
+//             emp_location : 'Kolkata'
+//         }
+//     ]
+
+//     res.write(JSON.stringify(Employee))
+//     res.end()
+// })
+
+// server.listen(5000, (err, res) => {
+//     if(err) throw error
+//     console.log('server is running at port : http://localhost:5000');
+// })
+
+// ? checking
+
+// const { error } = require('console');
+// const http = require('http');
+
+// const employees = [
+//     { emp_name: 'Irfan', emp_id: 101, emp_location: 'Bangalore' },
+//     { emp_name: 'Sahana', emp_id: 102, emp_location: 'Mumbai' },
+//     { emp_name: 'Sneha', emp_id: 103, emp_location: 'Mysuru' },
+//     { emp_name: 'Prathap', emp_id: 104, emp_location: 'Kolkata' }
+// ];
+
+// const server = http.createServer((req, res) => {
+//     res.setHeader('Content-Type', 'application/json');
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.statusCode = 200;
+//     res.write("Hi I am testing Error\n")
+//     res.end(JSON.stringify(employees));
+// });
+
+// server.listen(3000, (err) => {
+//     if(err) throw error;
+//     console.log('server is running at port : http://localhost:3000');
+// });
+
+// & super hero
+
+// const superHero = require('./superHero')
+// console.log(superHero.getName());
+// console.log(superHero.getName());
+
+// & Reading frolm form
+
+// let http = require('http')
+// let fs = require('fs');
+// const { error } = require('console');
+
+// let server = http.createServer((req, res) => {
+//     if(req.method === 'POST'){
+//         collectReqData(req, (result) => {
+//             console.log('Received POST data:', result);
+//             res.end('Data received')
+//         })
+//     }else{
+//         res.writeHead(200, {'content-type': 'text:html'})
+//         fs.createReadStream('./loginForm.html', 'utf-8').pipe(res)
+//     }
+// })
+
+// let collectReqData = (request, callback) => {
+//     let form_URLENCODED = 'application/x-www-form-urlencoded'
+//     if(request.headers['content-type'] === form_URLENCODED){
+//         let body = '';
+//         request.on('data', chunk => {
+//             body += chunk.toString()
+//         })
+//         request.on('end', error => {
+//             callback(body)
+//         })
+//     }else{
+//         callback(null)
+//     }
+// }
+
+// server.listen(5100, (err) => {
+//     if(err) throw error;
+//     console.log('sever is running at port : http://localhost:5100');
+// })
+
+// & Third party module
+// ? node mailer
+
+// let nodemailer = require('nodemailer')
+// let transporter = nodemailer.createTransport({
+//   service:'gmail',
+//   auth : {
+//     user:"aaminrajam@gmail.com",
+//     pass:"trhu valc gege hewz"
+//   }
+// })
+
+// async function main(){
+//   const info = await transporter.sendMail({
+//     from:'aaminrajam@gmail.com',
+//     to:'aaminraja21@gmail.com',
+//     subject:'Mail Sending',
+//     text:'Hello how are you',
+//     html:'<h1>This is me</h1>'
+//   })
+
+//   console.log("Message sent : %s", info.messageId);
+// }
+
+// main().catch(console.error)
