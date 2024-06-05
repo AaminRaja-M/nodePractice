@@ -654,19 +654,362 @@
 // emitter.emit("order-pizza", 'medium', 'chicken')
 
 // ? 
-let PizzaShop = require('./pizza-shop')
-let DrinkMachine = require('./drinking-machine')
-// console.log(PizzaShop);
+// let PizzaShop = require('./pizza-shop')
+// let DrinkMachine = require('./drinking-machine')
+// // console.log(PizzaShop);
 
-let pizzaShop = new PizzaShop()
-let drinkMachine = new DrinkMachine()
-// console.log(pizzaShop);
+// let pizzaShop = new PizzaShop()
+// let drinkMachine = new DrinkMachine()
+// // console.log(pizzaShop);
 
-pizzaShop.on('order', (size, topping) => {
-  console.log(`Order recieved, baking a ${size} pizza with ${topping} topping`);
-  drinkMachine.serveDrink(size)
+// pizzaShop.on('order', (size, topping) => {
+//   console.log(`Order recieved, baking a ${size} pizza with ${topping} topping`);
+//   drinkMachine.serveDrink(size)
+// })
+
+// pizzaShop.order('large', 'mushroom')
+// // console.log(pizzaShop);
+// pizzaShop.dsiplayOrderNumber()
+
+
+
+
+// ! Express
+// * Express is a popular web application framework for Node.js. It is designed for building web applications and APIs (Application Programming Interfaces)
+
+// & routing
+
+let express = require('express')
+// console.log(express);
+
+let app = express()
+// console.log(app);
+
+// * A route method is derived from one of the HTTP methods, and is attached to the instance of the express class
+// * Express supports methods that correspond to all HTTP request methods: get, post, and so on. For a full list
+
+//  respond with "hello world" when a GET request is made to the homepage
+// app.get('/', (req, res) => {
+//     // res.send('Hello World')
+//     // res.send('get request to the home page')
+//     res.send('<h1>Good morning my world</h1>')
+// })
+
+// //  respond with "hello world" when a post request is made to the homepage
+// app.post('/', (req, res) => {
+//     // res.send('Post request to the home page')
+//     res.send('<h1>Post request to the home page</h1>')
+// })
+
+// app.all('/', (req, res, next) => {
+//     // console.log('accessing the  secret section');
+//     res.send('All method')
+//     next()
+// })
+
+// ? Here are some examples of route paths based on strings.
+
+// This route path will match requests to the root route, /.
+
+// app.get('/', (req, res) => {
+//     res.send('root')
+// })
+
+// This route path will match requests to /about.
+
+// app.get('/about', (req, res) => {
+//     res.send('about')
+// })
+
+// This route path will match requests to /random.text.
+
+// app.get('/random.text', (req, res) => {
+//     res.send('random.text')
+// })
+
+// This route path will match acd and abcd.
+
+// app.get('/ab?cd', (req, res) => {
+//     res.send('ab?cd')
+// })
+
+// This route path will match abcd, abbcd, abbbcd, and so on.
+
+// app.get('/ab+cd', (req, res) => {
+//     res.send('ab+cd')
+//   })
+
+// This route path will match abcd, abxcd, abRANDOMcd, ab123cd, and so on.
+
+// app.get('/ab*cd', (req, res) => {
+//     res.send('ab*cd')
+//   })
+
+// This route path will match /abe and /abcde.
+
+// app.get('/ab(cd)?e', (req, res) => {
+//     res.send('ab(cd)?e')
+//   })
+
+// ? Examples of route paths based on regular expressions
+
+//This route path will match anything with an “a” in it. 
+
+// app.get(/a/, (req, res) => {
+//     res.send('/a/')
+//   })
+
+// This route path will match butterfly and dragonfly, but not butterflyman, dragonflyman, and so on.
+
+// app.get(/.*fly$/, (req, res) => {
+//     res.send('/.*fly$/')
+//   })
+
+
+// & Route parameters
+// * Route parameters are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys.
+
+// * The name of route parameters must be made up of “word characters” ([A-Za-z0-9_]).
+
+// app.get('/users/:userId/books/:bookId', (req, res) => {
+//     res.send(req.params)
+//   })
+
+// & Route handlers
+
+// * You can provide multiple callback functions that behave like middleware to handle a request
+// * Route handlers can be in the form of a function, an array of functions, or combinations of both, as shown in the following examples.
+
+// A single callback function can handle a route.
+
+// app.get('/example/a', (req, res) => [
+//     res.send('Hello from A!')
+// ])
+
+// More than one callback function can handle a route (make sure you specify the next object).
+
+// app.get('/example/b', (req, res, next) => {
+//     console.log('the response will be sent by the next function ...')
+//     next()
+//   }, (req, res) => {
+//     res.send('Hello from B!')
+//   })
+
+// An array of callback functions can handle a route.
+
+// let cb1 = (req, res, next) => {
+//     console.log('cb1');
+//     next()
+// }
+
+// let cb2 = (req, res, next) => {
+//     console.log('cb2');
+//     next()
+// }
+
+// let cb3 = (req, res) => {
+//     res.send('Hello from C!')
+// }
+
+// app.get('/example/c', [cb1, cb2, cb3])
+
+
+// A combination of independent functions and arrays of functions can handle a route.
+
+// let cb1 = (req, res, next) => {
+//     console.log('cb1');
+//     next()
+// }
+
+// let cb2 = (req, res, next) => {
+//     console.log('cb2');
+//     next()
+// }
+
+// app.get('/example/d', [cb1, cb2], (req, res, next) => {
+//     console.log('the response will be sent by the next function ...');
+//     next()
+// }, (req, res) => {
+//     res.send('Hello from D!')
+// })
+
+// & Response methods
+
+// * The methods on the response object (res) in the following table can send a response to the client, and terminate the request-response cycle. If none of these methods are called from a route handler, the client request will be left hanging.
+
+// ~ res.download() : Prompt a file to be downloaded.
+// ~ res.end() : End the response process.
+// ~ res.json() : Send a JSON response
+// ~ res.jsonp() : Send a JSON response with JSONP support.
+// ~ res.redirect() : Redirect a request.
+// ~ res.render() : Render a view template
+// ~ res.send() : Send a response of various types.
+// ~ res.sendFile() : 	Send a file as an octet stream.
+// ~ res.sendStatus() : Set the response status code and send its string representation as the response body.
+
+// & app.route()
+
+// * You can create chainable route handlers for a route path by using app.route(). Because the path is specified at a single location, creating modular routes is helpful, as is reducing redundancy and typos. For more information about routes
+// * Here is an example of chained route handlers that are defined by using app.route()
+
+// app.route('/book')
+//     .get((req, res) => {
+//         res.send(' Get a random book')
+//     })
+//     .post((req, res) => {
+//         res.send('Add a book')
+//     })
+//     .put((req, res) => {
+//         res.send('Update the book')
+//     })
+
+// & express.Router
+
+// * Use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
+// * The following example creates a router as a module, loads a middleware function in it, defines some routes, and mounts the router module on a path in the main app.
+
+// let birds = require('./birds')
+// app.use('/birds', birds)
+
+// ?
+
+// const birds = require('./birds')
+// // console.log(birds);
+// app.use('/birds', birds)
+
+// & Route middleware
+
+// * Route middleware in Express.js refers to middleware functions that are applied only to specific routes or groups of routes. This allows you to modularize your middleware, applying it only where it's needed, rather than globally to every request.
+
+// let authenticate = (req, res, next) => {
+//     // assume authentication is completed
+//     console.log('Authentication successfull');
+//     next()
+// }
+
+// // Define a route with route-specific middleware
+// app.get('/profile', authenticate, (req, res) => {
+//     res.send('Profile page');
+// })
+
+
+// // Define a route without route-specific middleware
+// app.get('/public', (req, res) => {
+//     res.send('Public page')
+// })
+
+// & middleware
+
+// * An Express application is essentially a series of middleware function calls.
+
+// * Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+
+
+// * Middleware functions can perform the following tasks
+// ~ Execute any code.
+// ~ Make changes to the request and the response objects.
+// ~ End the request-response cycle.
+// ~ Call the next middleware function in the stack.
+
+
+// * If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+// ? types of middlewares in express
+// ~ Application-level middleware
+// ~ Router-level middleware
+// ~ Error-handling middleware
+// ~ Built-in middleware
+// ~ Third-party middleware
+
+// ? Application-level middleware
+// * An application level middleware is executing every time the app receives a request
+
+// This example shows a middleware function with no mount path. The function is executed every time the app receives a request
+// app.use((req, res, next) => {
+//     console.log('Time : ', Date.now());
+//     res.send('Sending response for every request')
+//     next()
+// })
+
+// This example shows a middleware function mounted on the /user/:id path. The function is executed for any type of HTTP request on the /user/:id path
+
+// app.use('/user/:id', (req, res, next) => {
+//     console.log('Request Type:', req.method)
+//     res.send(`Sending response for /user/:id`)
+//     next()
+//   })
+
+// Here is an example of loading a series of middleware functions at a mount point, with a mount path. It illustrates a middleware sub-stack that prints request info for any type of HTTP request to the /user/:id path.
+// app.use('/user/:id', (req, res, next) => {
+//     console.log('request url : ', req.originalUrl);
+//     next()
+// }, (req, res, next) => {
+//     // console.log(Hii);
+//     console.log('Request Type :', req.method);
+//     next()
+// })
+
+// =======================================
+// * Route handlers enable you to define multiple routes for a path. The example below defines two routes for GET requests to the /user/:id path. The second route will not cause any problems, but it will never get called because the first route ends the request-response cycle.
+
+// This example shows a middleware sub-stack that handles GET requests to the /user/:id path.
+// app.get('/user/:id', (req, res, next) => {
+//     console.log('ID', req.params.id);
+//     next()
+//     }, (req, res, next) => {
+//         res.send('user info')
+//     }
+// ) 
+
+// app.get('/user/:id', (req, res, next) => {
+//     res.send(req.params.id)
+// })
+
+// =======================================
+
+// * To skip the rest of the middleware functions from a router middleware stack, call next('route') to pass control to the next route.
+
+//  This example shows a middleware sub-stack that handles GET requests to the /user/:id path
+
+// app.get('/user/:id', (req, res, next) => {
+//     // if the user ID is 0, skip to the next route
+//     if(req.params.id === '0') {
+//         // res.send(req.params.id)
+//         next('route')
+//     }else{
+//         next()
+//     }   
+// }, (req, res, next) => {
+//     res.send('regular')
+// })
+
+// app.get('/user/:id', (req, res, next) => {
+//     res.send('special')
+// })
+
+// =======================================
+
+// * Middleware can also be declared in an array for reusability.
+
+// This example shows an array with a middleware sub-stack that handles GET requests to the /user/:id path
+
+let logOriginalUrl = (req, res, next) => {
+    console.log('URL : ', req.originalUrl);
+    next()
+}
+
+let reqMethod = (req, res, next) => {
+    console.log('METHOD : ', req.method)
+    next()
+}
+
+let array = [logOriginalUrl, reqMethod]
+
+app.get('/user/:id', array, (req, res, next) => {
+    res.send('user info')
 })
 
-pizzaShop.order('large', 'mushroom')
-// console.log(pizzaShop);
-pizzaShop.dsiplayOrderNumber()
+app.listen(3000, (err) => {
+    if(err) throw error
+    console.log('server is running at port : http://localhost:3000');
+})
