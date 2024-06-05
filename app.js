@@ -524,13 +524,12 @@
 //     res.setHeader('Content-Type', 'application/json');
 //     res.setHeader('Access-Control-Allow-Origin', '*');
 //     res.statusCode = 200;
-//     res.write("Hi I am testing Error\n")
 //     res.end(JSON.stringify(employees));
 // });
 
-// server.listen(3000, (err) => {
+// server.listen(5000, (err) => {
 //     if(err) throw error;
-//     console.log('server is running at port : http://localhost:3000');
+//     console.log('server is running at port : http://localhost:5000');
 // });
 
 // & super hero
@@ -538,6 +537,28 @@
 // const superHero = require('./superHero')
 // console.log(superHero.getName());
 // console.log(superHero.getName());
+
+// ? with express
+
+// const express = require('express');
+// const app = express();
+
+// app.get('/data', (req, res) => {
+//   res.json({ message: 'Hello, world!' });
+// });
+
+// app.listen(3000, () => {
+//   console.log('Server is running on port 3000');
+// });
+
+// & json data
+// let data = require('./sample-data.json')
+// console.log(data);
+// let http = require('http')
+// let server = http.createServer((req, res) => {
+//   res.setHeader('content-type', 'json/application')
+//   res.setHea
+// })
 
 // & Reading frolm form
 
@@ -595,10 +616,57 @@
 //     to:'aaminraja21@gmail.com',
 //     subject:'Mail Sending',
 //     text:'Hello how are you',
-//     html:'<h1>This is me</h1>'
+//     html:'<h1>Date is 4-6-2024</h1>'
 //   })
 
 //   console.log("Message sent : %s", info.messageId);
 // }
 
 // main().catch(console.error)
+
+
+// & events module
+
+// let EventEmitter = require('events') //* events module returns a class EventEmitter, which encapsulates functionality to emit events and respond to event
+// // console.log(EventEmitter);
+// let emitter = new EventEmitter() //* using this emitter object, we can emit events
+// // * to emit an event we use emit method
+
+// // * for respond to the order pizza evnet, we need to register a listener, for that using on method
+// emitter.on("order-pizza", (size, topping) => {
+//   if(size!== 'medium'){
+//     console.log(`Order recieved, baking a ${size} pizza with ${topping} topping`);
+//   }
+// })
+
+// emitter.on("order-pizza", (size) => {
+//   if(size === 'large'){
+//     console.log(`serving complimentary drink`);
+//   }else if(size === 'medium'){
+//     console.log('Medium size pizza is not available');
+//   }
+// })
+
+// console.log('Do work before event occurs in the system');
+
+// emitter.emit("order-pizza", 'large', 'chicken') //*method accepts event name as argument
+
+// emitter.emit("order-pizza", 'medium', 'chicken')
+
+// ? 
+let PizzaShop = require('./pizza-shop')
+let DrinkMachine = require('./drinking-machine')
+// console.log(PizzaShop);
+
+let pizzaShop = new PizzaShop()
+let drinkMachine = new DrinkMachine()
+// console.log(pizzaShop);
+
+pizzaShop.on('order', (size, topping) => {
+  console.log(`Order recieved, baking a ${size} pizza with ${topping} topping`);
+  drinkMachine.serveDrink(size)
+})
+
+pizzaShop.order('large', 'mushroom')
+// console.log(pizzaShop);
+pizzaShop.dsiplayOrderNumber()

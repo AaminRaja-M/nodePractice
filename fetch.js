@@ -1,26 +1,41 @@
 // ?
 
-const { response } = require("express");
-const { errors } = require("undici");
+// console.log('checking');
+// // const { response } = require("express");
+// // const { errors } = require("undici");
 
-// const { fetch } = require('undici');
-// let data = fetch('http://localhost:3000', {mode:'cors'})
+// // const { fetch } = require('undici');
+// let data = fetch('http://localhost:5000', {mode:'cors'})
 // // console.log(data);
 // data.then((response) => {
-//     console.log(response);
+//     // console.log(response);
 
 //     let finalData = response.json()
-//     console.log(finalData);
+//     // console.log(finalData);
 
 //     finalData.then((result) => {
 //         console.log(result);
+//         result.map((ele) => {
+//             console.log(ele.emp_name);
+//         })
 //     })
 // })
 
+
 // ?
 
-// let data = fetch(' http://localhost:5000', {mode:'cors'})
+// let data = fetch('http://localhost:3000')
 // // console.log(data);
+// data.then((res)=> {return res.json()}).then((res)=>{ console.log(res)})
+
+
+// async function getData(){
+//     let data=await fetch("http://localhost:3000")
+//     data=await data.json();
+//     console.log(data)
+// }
+// getData()
+
 
 // data.then((response) => {
 //     // console.log(response);
@@ -105,14 +120,18 @@ const { errors } = require("undici");
 //     console.error('Fetch error:', error);
 // });
 
-// ? (3-6-2024)
+// ?
 
-let data = fetch('http://localhost:3000', {mode:'cors'})
-data.then((response) => {
-    response.json();
-    response.then((data) => {
-        console.log(data);
-    })
-}).catch(error => {
-    console.error(error);
-})
+// let data = fetch('http://localhost:3000', {mode:'cors'})
+// data.then((response) => {
+//     response.json();
+//     response.then((data) => {
+//         console.log(data);
+//     })
+// }).catch(error => {
+//     console.error(error);
+// })
+
+// & watch mode
+
+// console.log('Hello India');
