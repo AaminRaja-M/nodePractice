@@ -1,0 +1,281 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.totalSection{
+    min-width: 100%;
+    width: fit-content;
+    max-height: fit-content;
+    min-height: 585px;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    /* border: 1px solid red; */
+    transition: transform 0.3s ease;
+    transform-origin: 0 0;
+    padding-top: 50px;
+    position: relative;
+
+    background-image: linear-gradient(90deg, rgb(237, 237, 237),rgb(236, 236, 236)),linear-gradient(135deg, rgb(163, 125, 62) 0%, rgb(163, 125, 62) 22%,rgb(149, 100, 59) 22%, rgb(149, 100, 59) 32%,rgb(134, 75, 56) 32%, rgb(134, 75, 56) 37%,rgb(120, 50, 53) 37%, rgb(120, 50, 53) 51%,rgb(105, 25, 50) 51%, rgb(105, 25, 50) 55%,rgb(91, 0, 47) 55%, rgb(91, 0, 47) 100%),linear-gradient(112.5deg, rgb(163, 125, 62) 0%, rgb(163, 125, 62) 22%,rgb(149, 100, 59) 22%, rgb(149, 100, 59) 32%,rgb(134, 75, 56) 32%, rgb(134, 75, 56) 37%,rgb(120, 50, 53) 37%, rgb(120, 50, 53) 51%,rgb(105, 25, 50) 51%, rgb(105, 25, 50) 55%,rgb(91, 0, 47) 55%, rgb(91, 0, 47) 100%),linear-gradient(90deg, rgb(163, 125, 62) 0%, rgb(163, 125, 62) 22%,rgb(149, 100, 59) 22%, rgb(149, 100, 59) 32%,rgb(134, 75, 56) 32%, rgb(134, 75, 56) 37%,rgb(120, 50, 53) 37%, rgb(120, 50, 53) 51%,rgb(105, 25, 50) 51%, rgb(105, 25, 50) 55%,rgb(91, 0, 47) 55%, rgb(91, 0, 47) 100%); background-blend-mode:overlay, overlay, overlay, normal;
+}
+
+.todoSection{
+    /* border: 2px solid red; */
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    min-height: 200px;
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    /* box-shadow: 1px 1px 10px 2px gray; */
+    border-radius: 7px;
+}
+
+.todoinput{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.todoinput div{
+    width: 83%;
+    /* border: 1px solid green; */
+}
+
+.todoinput div input, .search-buttons-container div input{
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 5px;
+}
+
+.todoinput button, .search-buttons-container div button, .dateBtn{
+    width: 30%;
+    height: 35px;
+    background-color: rgb(37, 172, 218);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.search-buttons-container{
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.search-buttons-container div{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.todolist{
+    /* border:  2px solid green; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todosContainer{
+    /* border:  2px solid red; */
+    box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
+    width: 100%;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    color: rgb(68, 68, 68);
+    background-color: #fff;
+    border-radius: 7px;
+}
+
+.todosContainer div{
+    max-width: 45%;
+}
+
+.todosContainer div p{
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.deleteIcon{
+    transition: all ease 0.3s;
+}
+
+.deleteIcon:hover{
+    color: red;
+}
+
+.statusGreen{
+    color: green;
+}
+
+.statusRed{
+    color: red;
+}
+
+button, i{
+    cursor: pointer;
+}
+
+
+/* & date */
+
+.dateBtn-div{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.dateBtn-div h3{
+    font-weight: 500;
+    color: rgb(66, 66, 66);
+}
+
+.calendar{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid red; */
+    background-color: #fff;
+    /* padding: 6px; */
+    border-radius: 10px;
+    color: rgb(68, 68, 68);
+    width: 30%;
+}
+
+.todolist-sortedByDate{
+    width: 100%;
+}
+.clear-btn-div{
+    /* padding: 5px; */
+    width: 35%;
+    margin: 10px;
+}
+
+.calendar-clear-btn{
+    width: 100%;
+    height: 35px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* & zooming buttons */
+
+.zoom-btn-container{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    min-width: 70px;
+    min-height: 30px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.zoom-btn{
+    min-width: 40%;
+    min-height: 40%;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+    border: none;
+}
+
+.zoom-btn:hover{
+    background-color: red;
+    color: white;
+}
+
+/* & media query started */
+
+@media (min-width: 700px) and (max-width: 800px) {
+
+    .calendar{
+        position: relative;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+    }
+
+    .todoSection{
+        width: 70%;
+    }
+
+    .totalSection{
+        min-height: 1500px;
+    }
+
+    .search-buttons-container div{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px){
+
+    .calendar{
+        position: relative;
+        right: 0px;
+        top: 0px;
+        width: 100%;
+    }
+
+    .todoSection{
+        width: 90%;
+    }
+
+    .totalSection{
+        min-height: 1000px;
+    }
+
+    .search-buttons-container div{
+        flex-direction: column;
+    }
+}
